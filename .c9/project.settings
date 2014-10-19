@@ -12,7 +12,8 @@
                 }
             },
             "@inited": "true"
-        }
+        },
+        "@runner": "Ruby on Rails (Rails 4.0 + Ruby 2.1)"
     },
     "share": {
         "@preview": false,
