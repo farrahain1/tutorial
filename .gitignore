@@ -16,6 +16,6 @@
 /tmp
 
 # ignore all Cloud9 files
-/ .c9
+/.c9
 .c9
 /.c9/*
