@@ -14,3 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# ignore all Cloud9 files
+/ .c9
+.c9
+/.c9/*
