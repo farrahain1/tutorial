@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Simple Search Form</title>
   
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -9,8 +9,29 @@
 </head>
 <body>
 
+<ul>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Users', users_path %></li>
+  <% if logged_in? %>
+  <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+  <% else %>
+  <li><%= link_to 'Login', login_path %></li>
+  <% end %>
+</ul>
+
 <% flash.each do |message_type, message| %>
     <%= message %>
+  <% end %>
+  
+ 
+  
+  <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+    <div>
+      <%= text_field_tag :search, params[:search], placeholder: "Search User" %>
+      <!-- In order to have the "search" icon int the button, we need to use plain HTML instead 
+           of using a Rails form helper -->
+      <button type="submit"><i>Search</i></button>
+    </div>
   <% end %>
 
 <%= yield %>

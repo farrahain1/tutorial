@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
     validates :email, uniqueness:true
     validates :password, length:{minimum:6}
     validates :password_confirmation, presence:true
+    
+    def self.search(query)
+        where("name like ?", "%#{query}%")
+    end
+    
 end
